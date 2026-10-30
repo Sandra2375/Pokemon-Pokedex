@@ -1,13 +1,15 @@
 
 
-function PokemonCard() {
+function PokemonCard({pokemon}) {
   return(
     <div className='card'>              
-      <span className='numero'>#25</span>
-      <img src="https://archives.bulbagarden.net/media/upload/thumb/4/4a/0025Pikachu.png/800px-0025Pikachu.png" alt="pikachu" />
-      <h3>Pikachu</h3>
+      <span className='numero'>#{pokemon.id}</span>
+      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+      <h3>{pokemon.name}</h3>
       <div className='tipos'>
-        <span className='tipo'>Eletrico</span>
+       {pokemon.types.map((t) => (
+           <span key={t.type.name} className={"tipo " + t.type.name}>{t.type.name}</span>
+       ))}
       </div>
     </div>
   );

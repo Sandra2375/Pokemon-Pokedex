@@ -1,11 +1,15 @@
 
 import  PokemonCard from "./PokemonCard";
 
-function PokemonList() {
+function PokemonList({pokemons}) {
   return(
     <div className='lista'>              
       
-    <PokemonCard/>
+    { //mapeando pokemon do PokemonCard a chave pokemon .id e pokemon.
+      pokemons.map((pokemon) => (
+        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+      )) 
+    }
     </div>
   );
   
